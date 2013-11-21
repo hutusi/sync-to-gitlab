@@ -1,0 +1,7 @@
+{"workspace":"/Users/john/workspace/my_github/test/vim",
+"init":[
+  {"src_url":"https://github.com/hutusi/vimfiles",
+   "dest_url":"git@gitlab.local:hutusi/vim.git"
+  }
+]
+}

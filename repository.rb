@@ -21,6 +21,16 @@ class Repository
   end
 end
 
+def new_repoe(path, src_url, dest_url)
+  repo = Repository.new(path, src_url, dest_url)
+  repo.init
+end
+
+def sync_all(workspace)
+  # loop workspace to sync repositorys
+end
+
+
 repo = Repository.new("/Users/john/workspace/my_github/test/vim", "https://github.com/hutusi/vimfiles", "git@gitlab.local:hutusi/vim.git")
 repo.init
 repo.sync
