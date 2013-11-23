@@ -1,6 +1,6 @@
 
 class Repository
-  def initialize(path, src_url, dest_url)
+  def initialize(path, src_url="", dest_url="")
     @path = path
     @src_url = src_url
     @dest_url = dest_url

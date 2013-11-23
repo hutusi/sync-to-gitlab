@@ -24,7 +24,7 @@ def sync_all
 
   path = File.join(workspace, "*.git")
   Dir.glob(path) { |x|
-    repo = Repository.new(path)
+    repo = Repository.new(x)
     repo.sync
   }
 end
