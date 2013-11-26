@@ -11,3 +11,14 @@ namespace "run" do
   end
 end
 
+namespace "gitlab" do
+  task :project do
+  end
+
+  task :vim do
+  end
+
+  task :os do 
+  end
+end
+
