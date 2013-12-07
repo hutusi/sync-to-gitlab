@@ -1,8 +1,14 @@
-{"workspace":"/Users/john/workspace/my_github/test/vim",
-"init":[
-  { "name" : "vim",
-    "src_url":"https://github.com/hutusi/vimfiles",
-    "dest_url":"git@gitlab.local:hutusi/vim.git"
+{
+  "github": "http://github.com/",
+  "gitlab": "git@gitlab.local:",
+  "base_url": "http://gitlab.local/api/v3",
+  "private_token": "gyhzxARwhpt23Y8Qogbg",
+  "params" : {
+    "issues_enabled" : false,
+    "wall_enabled" : false,
+    "merge_requests_enabled" : false,
+    "wiki_enabled" : false,
+    "snippets_enabled" : false,
+    "public" : true
   }
-]
 }

@@ -4,9 +4,10 @@ require 'json'
 
 
 class Project
-  def initialize
-    @base_url = 'http://gitlab.local/api/v3'
-    @private_token = 'gyhzxARwhpt23Y8Qogbg'
+  def initialize(config)
+    @config = config
+    @base_url = @config["base_url"]
+    @private_token = @config["private_token"]
   end
 
   def projects_url
@@ -26,17 +27,17 @@ class Project
     resp.body
   end
   
-  def create_project_for_group(group_id, project_name)
+  def create_project_for_group(group_id, name, desc = "")
     url = "#{projects_url}&namespace_id=#{group_id}"
     params = {
-      "name" => project_name,
-      "description" => '',
-      "issues_enabled" => false,
-      "wall_enabled" => false,
-      "merge_requests_enabled" => false,
-      "wiki_enabled" => false,
-      "snippets_enabled" => false,
-      "public" => true
+      "name" => name,
+      "description" => desc,
+      "issues_enabled" => @config["issues_enabled"],
+      "wall_enabled" => @config["wall_enabled"],
+      "merge_requests_enabled" => @config["merge_requests_enabled"],
+      "wiki_enabled" => @config["wiki_enabled"],
+      "snippets_enabled" => @config["snippets_enabled"],
+      "public" => @config["public"]
     }
 
     resp = Net::HTTP.post_form(URI.parse(url), params)

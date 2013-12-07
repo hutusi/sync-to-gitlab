@@ -6,11 +6,11 @@ require 'json'
 class Synchronizer
   def initialize
     parse
-    @project = Project.new
+    @project = Project.new @config
   end
 
   def parse
-    @config = {}
+    @config = JSON.parse(File.read("config.json"))
     @config["github"] = "http://github.com/"
     @config["gitlab"] = "git@gitlab.local:"
     projects_config = JSON.parse(File.read("projects.json"))
