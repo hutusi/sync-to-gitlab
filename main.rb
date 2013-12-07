@@ -27,6 +27,12 @@ class Synchronizer
   end
 
   def init_all
+    @workspaces.each {|w|
+      w["projects"].each {|p|
+        repo = Repository.new(p["local"], p["github"], p["gitlab"])
+        repo.init
+      }
+    }
   end
 
   def sync_all
@@ -48,6 +54,7 @@ class Synchronizer
           prj["name"] = name
           prj["github"] = "#{@config["github"]}#{p}.git"
           prj["gitlab"] = "#{@config["gitlab"]}#{group}/#{name}.git"
+          prj["local"] = File.join(ws["dir"], name + ".git")
           projects << prj
         }
         ws["projects"] = projects
@@ -56,8 +63,6 @@ class Synchronizer
       workspaces
     end
 
-    def create
-    end
 end
 
 def parse_config

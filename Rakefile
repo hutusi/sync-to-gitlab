@@ -8,7 +8,8 @@ namespace "run" do
   end
 
   task :init do
-    init_all
+    sync = Synchronizer.new
+    sync.init_all
   end
 
   task :sync do
