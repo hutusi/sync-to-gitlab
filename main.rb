@@ -11,8 +11,6 @@ class Synchronizer
 
   def parse
     @config = JSON.parse(File.read("config.json"))
-    @config["github"] = "http://github.com/"
-    @config["gitlab"] = "git@gitlab.local:"
     projects_config = JSON.parse(File.read("projects.json"))
     @workspaces = parse_workspaces projects_config
   end
