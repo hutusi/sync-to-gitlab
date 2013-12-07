@@ -1,0 +1,10 @@
+[
+  {
+    "workspace": "/Users/john/workspace/my_github/test/vim",
+    "group": "test",
+    "projects" : [
+      "hutusi/vimfiles",
+      "bling/vim-airline"
+    ]
+  }
+]
