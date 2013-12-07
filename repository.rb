@@ -8,7 +8,7 @@ class Repository
 
   def init
     begin
-      `git clone --bare #{@src_url} #{@path}`
+      `git clone --mirror #{@src_url} #{@path}`
       Dir.chdir(@path){
         `git remote add gitlab #{@dest_url}`
       }
@@ -21,7 +21,7 @@ class Repository
     begin
       Dir.chdir(@path){
         `git fetch origin`
-        `git push --mirror gitlab`
+        `git push --all gitlab`
       }
     rescue Exception => ex
       p ex

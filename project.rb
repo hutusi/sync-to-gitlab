@@ -6,6 +6,7 @@ require 'json'
 class Project
   def initialize(config)
     @config = config
+    @params = config["params"]
     @base_url = @config["base_url"]
     @private_token = @config["private_token"]
   end
@@ -29,18 +30,10 @@ class Project
   
   def create_project_for_group(group_id, name, desc = "")
     url = "#{projects_url}&namespace_id=#{group_id}"
-    params = {
-      "name" => name,
-      "description" => desc,
-      "issues_enabled" => @config["issues_enabled"],
-      "wall_enabled" => @config["wall_enabled"],
-      "merge_requests_enabled" => @config["merge_requests_enabled"],
-      "wiki_enabled" => @config["wiki_enabled"],
-      "snippets_enabled" => @config["snippets_enabled"],
-      "public" => @config["public"]
-    }
-
-    resp = Net::HTTP.post_form(URI.parse(url), params)
+    @params["name"] = name
+    @params["description"] = desc
+    p @params
+    resp = Net::HTTP.post_form(URI.parse(url), @params)
     p resp 
   end
 
