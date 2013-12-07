@@ -7,7 +7,6 @@ class Project
   def initialize
     @base_url = 'http://gitlab.local/api/v3'
     @private_token = 'gyhzxARwhpt23Y8Qogbg'
-    @sudo = 'hutusi'
   end
 
   def projects_url
@@ -29,7 +28,6 @@ class Project
   
   def create_project_for_group(group_id, project_name)
     url = "#{projects_url}&namespace_id=#{group_id}"
-    p url
     params = {
       "name" => project_name,
       "description" => '',
@@ -42,6 +40,7 @@ class Project
     }
 
     resp = Net::HTTP.post_form(URI.parse(url), params)
+    p resp 
   end
 
   def get_group_id(group_name)
@@ -58,6 +57,3 @@ class Project
   end
 end
 
-prj = Project.new
-id = prj.get_group_id("test")
-prj.create_project_for_group(id, "my_test")
