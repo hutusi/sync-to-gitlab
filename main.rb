@@ -36,6 +36,12 @@ class Synchronizer
   end
 
   def sync_all
+    @workspaces.each {|w|
+      w["projects"].each {|p|
+        repo = Repository.new(p["local"], p["github"], p["gitlab"])
+        repo.sync
+      }
+    }
   end
 
   private
@@ -63,32 +69,5 @@ class Synchronizer
       workspaces
     end
 
-end
-
-def parse_config
-  JSON.parse(File.read("config.json"))
-end
-
-def init_all
-  config = parse_config
-  workspace = config["workspace"]
-  repos = config["init"]
-
-  repos.each { |x|
-    path = File.join(workspace, x["name"] + ".git")
-    repo = Repository.new(path, x["src_url"], x["dest_url"])
-    repo.init
-  }
-end
-
-def sync_all
-  config = parse_config
-  workspace = config["workspace"]
-
-  path = File.join(workspace, "*.git")
-  Dir.glob(path) { |x|
-    repo = Repository.new(x)
-    repo.sync
-  }
 end
 
