@@ -1,6 +1,6 @@
 {
   "github": "http://github.com/",
-  "gitlab": "git@gitlab.local:",
+  "gitlab": "git@rnd-git.huawei.com:",
   "base_url": "http://gitlab.local/api/v3",
   "private_token": "gyhzxARwhpt23Y8Qogbg",
   "params" : {

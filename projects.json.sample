@@ -1,10 +1,48 @@
 [
   {
-    "workspace": "/Users/john/workspace/my_github/test/vim",
-    "group": "test",
+    "workspace": "/Volumes/Mac Extended/workspace/git/mirror",
+    "group": "opensource",
     "projects" : [
-      "hutusi/vimfiles",
-      "bling/vim-airline"
+      "rails/rails",
+      "ruby/ruby",
+      "mojombo/jekyll",
+      "jquery/jquery",
+      "progit/progit",
+      "mono/mono",
+      "travis-ci/travis-ci",
+      "git/git",
+      "torvalds/linux",
+      "sinatra/sinatra",
+      "libgit2/libgit2",
+      "libgit2/libgit2sharp",
+      "libgit2/rugged",
+      "kaisellgren/Git-GUI",
+      "pcottle/learnGitBranching",
+      "github/gitignore",
+      "twbs/bootstrap",
+      "jashkenas/coffee-script",
+      "nvie/gitflow",
+      "gitlabhq/gitlabhq",
+      "gitlabhq/gitlab-ci",
+      "gitlabhq/gitlab-shell",
+      "bbatsov/ruby-style-guide",
+      "mame/quine-relay",
+      "joyent/node",
+      "isaacs/npm",
+      "bundler/bundler",
+      "mirrors/gcc",
+      "mirrors/emacs",
+      "b4winckler/vim",
+      "llvm-mirror/clang",
+      "vhf/free-programming-books"
+    ]
+  },
+  {
+    "workspace": "/Volumes/Mac Extended/workspace/git/vim",
+    "group": "vim",
+    "projects" : [
+      "scrooloose/syntastic",
+      "scrooloose/nerdcommenter"
     ]
   }
 ]
