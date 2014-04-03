@@ -53,11 +53,12 @@ class Synchronizer
         projects = []
         w["projects"].each {|p|
           p.strip!
-          name = p.split('/')[1]
+          # github allows '.' in name, gitlab uses '-' instead.
+          name = p.split('/')[1].gsub(".", "-")
           prj = {}
           prj["name"] = name
           prj["github"] = "#{@config["github"]}#{p}.git"
-          prj["gitlab"] = "#{@config["gitlab"]}#{group}/#{name}.git"
+          prj["gitlab"] = "#{@config["gitlab"]}#{group}/#{name}.git".downcase
           prj["local"] = File.join(ws["dir"], name + ".git")
           projects << prj
         }
